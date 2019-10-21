@@ -1,11 +1,14 @@
 <template>
     <div id="calendar-entry">
         <div class="calendar-entry-note">
-            <input type="text" placeholder="Novo evento" />
+            <p style="color: red; font-size: 13px" v-if="error">
+                Você precisa digitar algo primeiro!
+            </p>
+            <input type="text" placeholder="Novo evento" v-model="inputEntry" required />
             <p class="calendar-entry-day">
                 Dia do evento: <span class="bold">{{ titleOfActiveDay }}</span>
             </p>
-            <a class="button is-primary is-small is-outlined">Cadastrar</a>
+            <a class="button is-primary is-small is-outlined" @click="submitEvent(inputEntry)" >Cadastrar</a>
         </div>
     </div>
 </template>
@@ -15,11 +18,26 @@
 
     export default {
         name: "CalendarEntry",
+        data () {
+            return {
+                inputEntry: '',
+                error: false
+            }
+        },
         computed: {
             titleOfActiveDay() {
                 return store.getActiveDay().fullTitle;
             }
         },
+        methods: {
+            submitEvent (eventDetails) {
+                if (eventDetails === '') return this.error = true;
+
+                store.submitEvent(eventDetails);
+                this.inputEntry = '';
+                this.error = false;
+            }
+        }
     }
 </script>
 
