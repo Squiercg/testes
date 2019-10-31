@@ -6,6 +6,7 @@
         <li class="nav-item active"><router-link class="navbar-link" to='/'>Home</router-link></li>
         <li class="nav-item active"><router-link class="navbar-link" to='/listapostagens'>Lista Postagens </router-link></li>
         <li class="nav-item active"><router-link class="navbar-link" to='/criapostagem'>Cria uma postagem </router-link></li>
+        <li class="nav-item active"><router-link class="navbar-link" to='/listapostagensvuex'>Lista Postagens Vuex</router-link></li>
       </ul>
     </nav>
 
@@ -15,9 +16,11 @@
         <li><strong>API:</strong> <a href="https://reqres.in/" target="_blank">https://reqres.in/</a></li>
       </ol>
     </div>
-
     <br>
     <router-view />
+
+
+
   </div>
 </template>
 

@@ -11,7 +11,7 @@
 
                     {{postagem.title}}
                     <router-link v-bind:to="'/lerpostagem/'+postagem.id"><i class="fa fa-eye"></i></router-link>
-                    <i class="fa fa-edit"></i>
+                    <router-link v-bind:to="'/editapostagem/'+postagem.id"><i class="fa fa-edit"></i></router-link>
                     <i class="fa fa-trash-o"  v-on:click="deletapost(postagem.id)" ></i>
 
 
